@@ -1,0 +1,85 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{insert_scripts files='jquery.js,jquery.json.js,utils.js'}
+
+{if $language eq 'en_us'}
+<style type="text/css">
+body{ font-size:12px;font-family:Arial, Helvetica, sans-serif;  line-height:150%; margin:0px; padding:0px;}
+</style>
+{/if}
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+<div class="top-bar">
+  <div class="fd_top fd_top1">
+    <div class="bar-left">
+          <div class="top_menu1"> {insert_scripts files='transport.js,utils.js'} <font id="ECS_MEMBERZONE">{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </font> </div>
+    </div>
+    <div class="bar-cart">
+    
+    <form action="" style="display:none" method="post" id="language-view-form1" name="language_view_form1">
+     <input type="hidden" name="language" value=""/>  
+     </form>
+        <div class="language">
+        	<a href="javascript:jumpLanguage('zh_cn')" {if $language eq 'zh_cn'}class="sel"{/if}>中文</a>
+            <a href="javascript:jumpLanguage('en_us')" {if $language eq 'en_us'}class="sel"{/if}>English</a>
+        </div>
+         <script language="javascript">
+    <!--
+    function jumpLanguage(language)
+    {
+        document.language_view_form1.language.value = language;
+        document.language_view_form1.action=window.location;
+        document.language_view_form1.submit();
+    }
+    -->
+    </script>
+    
+      <div class="fl cart-yh">
+        <a href="user.php" class="">{$lang.user_center}</a>
+      </div>
+      <div class="cart" id="ECS_CARTINFO"> {insert name='cart_info'} </div>
+    </div>
+  </div>
+</div>
+<div class="nav-menu">
+  <div class="wrap">
+    <div class="logo"><a href="../index.php" name="top"><img src="../images/logo.jpg" /></a></div>
+    <div id="mainNav" class="clearfix maxmenu">
+      <div class="m_left">
+      <ul>
+        <li><a href="../index.php"{if $navigator_list.config.index eq 1} class="cur"{/if}>{$lang.home}</a></li>
+        <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+        <!-- {if $smarty.foreach.nav_middle_list.last}-->
+        <li><a href="{$nav.url}" 
+        
+          <!-- {if $nav.opennew eq 1} -->
+          target="_blank"
+          <!-- {/if} -->
+          >{$nav.name}</a></li>
+        <!-- {else} -->
+        <li><a href="{$nav.url}" 
+        
+          <!-- {if $nav.opennew eq 1} -->
+          target="_blank"
+          <!-- {/if} -->
+          >{$nav.name}</a></li>
+        <!-- {/if} -->
+        <!-- {if $nav.active eq 1} -->
+        <!-- {/if} -->
+        <!-- {/foreach} -->
+      </ul>
+      </div>
+    </div>
+    <div class="serach-box">
+      <form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()" class="f_r">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="135"><input name="keywords" type="text" id="keyword" value="{$search_keywords|escape}" class="B_input"  /></td>
+            <td><input name="imageField" type="submit" value="{$lang.search}" class="go" style="cursor:pointer;" /></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="clear0 "></div>

@@ -1,0 +1,27 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="goods-title"><span>1</span>F {$goods_cat.name|escape:html}</div>
+      <div class="clearfix goods-wrap">
+        <div class="goods-leftad">
+         {insert name='ads' id=9 num=1}<div style="margin-top:12px;">
+	{insert name='ads' id=14 num=1}
+</div>
+        </div>
+        <div class="goods-right">
+            <!--{foreach from=$cat_goods item=goods}-->
+  <a class="goodsItem" href="{$goods.url}"> <div  class="img-box"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" class="goodsimg" /></div>
+  <div class="goods-brief">{$goods.brief|truncate:20}</div>
+    <div class="gos-title">{$goods.short_name|escape:html}</div> 
+	<div class="prices">
+	    <!-- {if $goods.promote_price neq ""} -->
+    <font class="shop_s">{$lang.promote_price}<b>{$goods.promote_price}</b></font>
+    <!-- {else}-->
+    <font class="shop_s"><b>{$goods.shop_price}</b></font>
+    <!--{/if}-->
+	</div>
+	 
+
+  </a>
+  <!--{/foreach}-->
+        </div>
+      </div>
+      
